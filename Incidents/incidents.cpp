@@ -57,19 +57,19 @@ using IncidentNameFunction = std::string(*)(IncidentType);
 std::string getIncidentNameLevel1(IncidentType incident) {
     switch (incident) {
         case REDUCE_TIME:
-            return "Instantly understood KNN from Bilibili University [Reduce time by 5s]";
+            return "Instantly understood KNN from Bilibili University [Reduce time by 5s]                     ";
         case PAUSE_DUE:
-            return "Collaborated smoothly with group [Pause due for 5s]";
+            return "Collaborated smoothly with group [Pause due for 5s]                                       ";
         case REVERSE_DUE:
-            return "Solved confusion by asking the prof [Reverse due by 3 spaces]";
+            return "Solved confusion by asking the prof [Reverse due by 3 spaces]                             ";
         case ADD_TIME:
-            return "Didn't understand the prof's PPT on probability [Add time by 10s]";
+            return "Didn't understand the prof's PPT on probability [Add time by 10s]                         ";
         case ADD_HEALTH:
-            return "Discovered a relevant and easy-to-understand book [Add 1 health]";
+            return "Discovered a relevant and easy-to-understand book [Add 1 health]                          ";
         case REDUCE_HEALTH:
-            return "Didn't understand tutorial due to lack of programming knowledge [Reduce health by 1]";
+            return "Didn't understand tutorial due to lack of programming knowledge [Reduce health by 1]      ";
         default:
-            return "Unknown incident";
+            return "Unknown incident                                                                          ";
     }
 }
 
@@ -77,19 +77,19 @@ std::string getIncidentNameLevel1(IncidentType incident) {
 std::string getIncidentNameLevel2(IncidentType incident) {
     switch (incident) {
         case REDUCE_TIME:
-            return "Tutorial explained exercise in detail [Reduce time by 5s]";
+            return "Tutorial explained exercise in detail [Reduce time by 5s]                                 ";
         case PAUSE_DUE:
-            return "Found midterm paper and cheated [Pause due for 5s]";
+            return "Found midterm paper and cheated [Pause due for 5s]                                        ";
         case REVERSE_DUE:
-            return "Pro helped debug in 10 minutes [Reverse due by 3 spaces]";
+            return "Pro helped debug in 10 minutes [Reverse due by 3 spaces]                                  ";
         case ADD_TIME:
-            return "Struggled with testcase for two hours [Add time by 10s]";
+            return "Struggled with testcase for two hours [Add time by 10s]                                   ";
         case ADD_HEALTH:
-            return "Found great Python course on Bilibili [Add 1 health]";
+            return "Found great Python course on Bilibili [Add 1 health]                                      ";
         case REDUCE_HEALTH:
-            return "Testcase wouldn't pass, debugged for two hours [Reduce health by 1]";
+            return "Testcase wouldn't pass, debugged for two hours [Reduce health by 1]                       ";
         default:
-            return "Unknown incident";
+            return "Unknown incident                                                                          ";
     }
 }
 
@@ -97,19 +97,19 @@ std::string getIncidentNameLevel2(IncidentType incident) {
 std::string getIncidentNameLevel3(IncidentType incident) {
     switch (incident) {
         case REDUCE_TIME:
-            return "Used GPT to complete a small section of an essay [Reduce time by 5s]";
+            return "Used GPT to complete a small section of an essay [Reduce time by 5s]                      ";
         case PAUSE_DUE:
-            return "Peer review provided constructive feedback [Pause due for 5s]";
+            return "Peer review provided constructive feedback [Pause due for 5s]                             ";
         case REVERSE_DUE:
-            return "Discussed with CSS Writing Center tutor [Reverse due by 3 spaces]";
+            return "Discussed with CSS Writing Center tutor [Reverse due by 3 spaces]                         ";
         case ADD_TIME:
-            return "Overslept morning class [Add time by 10s]";
+            return "Overslept morning class [Add time by 10s]                                                 ";
         case ADD_HEALTH:
-            return "Obtained several excellent sample essays from senior students [Add 1 health]";
+            return "Obtained several excellent sample essays from senior students [Add 1 health]              ";
         case REDUCE_HEALTH:
-            return "Caught using GPT for assignment [Reduce health by 1]";
+            return "Caught using GPT for assignment [Reduce health by 1]                                      ";
         default:
-            return "Unknown incident";
+            return "Unknown incident                                                                          ";
     }
 }
 
@@ -117,19 +117,19 @@ std::string getIncidentNameLevel3(IncidentType incident) {
 std::string getIncidentNameLevel4(IncidentType incident) {
     switch (incident) {
         case REDUCE_TIME:
-            return "Found complete database on Kaggle [Reduce time by 5s]";
+            return "Found complete database on Kaggle [Reduce time by 5s]                                     ";
         case PAUSE_DUE:
-            return "Collaborated with pro on data processing model [Pause due for 5s]";
+            return "Collaborated with pro on data processing model [Pause due for 5s]                         ";
         case REVERSE_DUE:
-            return "Learned linear regression in Eddy's office [Reverse due by 3 spaces]";
+            return "Learned linear regression in Eddy's office [Reverse due by 3 spaces]                      ";
         case ADD_TIME:
-            return "Caught writing other assignments in lecture [Add time by 10s]";
+            return "Caught writing other assignments in lecture [Add time by 10s]                             ";
         case ADD_HEALTH:
-            return "Learned Excel for linear regression [Add 1 health]";
+            return "Learned Excel for linear regression [Add 1 health]                                        ";
         case REDUCE_HEALTH:
-            return "Group project lacked control group, negated research [Reduce health by 1]";
+            return "Group project lacked control group, negated research [Reduce health by 1]                 ";
         default:
-            return "Unknown incident";
+            return "Unknown incident                                                                          ";
     }
 }
 
@@ -137,19 +137,19 @@ std::string getIncidentNameLevel4(IncidentType incident) {
 std::string getIncidentNameLevel5(IncidentType incident) {
     switch (incident) {
         case REDUCE_TIME:
-            return "Content already learned in high school [Reduce time by 5s]";
+            return "Content already learned in high school [Reduce time by 5s]                                ";
         case PAUSE_DUE:
-            return "Tutor outlined key points before exam [Pause due for 5s]";
+            return "Tutor outlined key points before exam [Pause due for 5s]                                  ";
         case REVERSE_DUE:
-            return "Professor extended assignment deadline [Reverse due by 3 spaces]";
+            return "Professor extended assignment deadline [Reverse due by 3 spaces]                          ";
         case ADD_TIME:
-            return "Professor forgot to record the class [Add time by 10s]";
+            return "Professor forgot to record the class [Add time by 10s]                                    ";
         case ADD_HEALTH:
-            return "Found great calculus course on Bilibili [Add 1 health]";
+            return "Found great calculus course on Bilibili [Add 1 health]                                    ";
         case REDUCE_HEALTH:
-            return "Get confused in the tutorial [Reduce health by 1]";
+            return "Get confused in the tutorial [Reduce health by 1]                                         ";
         default:
-            return "Unknown incident";
+            return "Unknown incident                                                                          ";
     }
 }
 
@@ -157,25 +157,25 @@ std::string getIncidentNameLevel5(IncidentType incident) {
 std::string getIncidentNameLevel6(IncidentType incident) {
     switch (incident) {
         case REDUCE_TIME:
-            return "Tutor taught class while Wat was in meeting [Reduce time by 5s]";
+            return "Tutor taught class while Wat was in meeting [Reduce time by 5s]                           ";
         case PAUSE_DUE:
-            return "Wat explained assignment questions in class [Pause due for 5s]";
+            return "Wat explained assignment questions in class [Pause due for 5s]                            ";
         case REVERSE_DUE:
-            return "Actively answered questions in forum, impressed Wat [Reverse due by 3 spaces]";
+            return "Actively answered questions in forum, impressed Wat [Reverse due by 3 spaces]             ";
         case ADD_TIME:
-            return "Missed 10 minutes of important content due to early start [Add time by 10s]";
+            return "Missed 10 minutes of important content due to early start [Add time by 10s]               ";
         case ADD_HEALTH:
-            return "Wat impressed by forum activity [Add 1 health]";
+            return "Wat impressed by forum activity [Add 1 health]                                            ";
         case REDUCE_HEALTH:
-            return "Overslept morning class [Reduce health by 1]";
+            return "Overslept morning class [Reduce health by 1]                                              ";
         default:
-            return "Unknown incident";
+            return "Unknown incident                                                                          ";
     }
 }
 
 // Default
 std::string getIncidentNameDefault([[maybe_unused]] IncidentType incident) {
-    return "Unknown incident";
+    return "Unknown incident                                                                          ";
 }
 
 // Define an array of function pointers
