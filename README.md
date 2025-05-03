@@ -20,11 +20,11 @@
 
 ## **Features**
 
-- **Immersive Level Experience:** Traverse through 6 unique levels, each representing a course (e.g., `STAT1016`, `COMP1117`, etc.).
-- **Random Events:** Trigger random events like adding or reducing time, increasing or decreasing health, pausing the DUE, and more, to make the game more dynamic and challenging.
-- **Multiple Difficulty Levels:** Choose between **Easy**, **Medium**, and **Hard** to match your skill level.
-- **Health and Time Management:** Manage limited health and time to complete each level. Death causes health loss and resets the player's position.
-- **Scoring and GPA:** Earn scores at the end of each level based on performance and calculate a final GPA upon game completion.
+- **Data Structure:** Including 2D Vector to store and display all the maps, basic data types e.g. int, char, string.
+- **Random Events:** (Incident directory) Trigger random events like adding or reducing time, increasing or decreasing health, pausing the DUE, and more, to make the game more dynamic and challenging.
+- **Dynamic memory management:** (in main.cpp) Record random event, score and GPA while gaming.
+- **File input/output:** (in score_system.cpp) Store player's record in **record.txt** at the end of the game, read from the **record.txt** and display in the terminal to show player's gaming records.
+- **Multiple files:** (All_maps & Incidents directory) The former contains all the map UI and logic code files and the latter contains all the random events' logic code files.
 
 ---
 
