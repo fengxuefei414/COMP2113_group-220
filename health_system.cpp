@@ -1,34 +1,34 @@
 #include "health_system.h"
 #include <iostream>
 
-const int MAX_HEALTH = 4;         // 最大血量
-const int INVINCIBLE_TIME = 1;    // 无敌时间（秒）
+const int MAX_HEALTH = 4;         // Maximum health
+const int INVINCIBLE_TIME = 1;    // Invincibility time (seconds)
 
-// 初始化血量系统
+// Initialize the health system
 void initHealth(HealthSystem& health) {
     health.health = MAX_HEALTH;
     health.isInvincible = false;
     health.lastHitTime = 0;
 }
 
-// 处理受伤
+// Handle damage
 bool handleDamage(HealthSystem& health) {
     time_t currentTime = time(nullptr);
     
-    // 检查是否处于无敌状态
+    // Check if invincibility is active
     if (!health.isInvincible || currentTime - health.lastHitTime >= INVINCIBLE_TIME) {
         health.health--;
         health.isInvincible = true;
         health.lastHitTime = currentTime;
         
-        // 返回是否死亡
+        // Return whether the player is dead
         return health.health <= 0;
     }
     
     return false;
 }
 
-// 更新无敌状态
+// Update invincibility status
 void updateInvincibility(HealthSystem& health) {
     time_t currentTime = time(nullptr);
     if (health.isInvincible && currentTime - health.lastHitTime >= INVINCIBLE_TIME) {
@@ -36,13 +36,13 @@ void updateInvincibility(HealthSystem& health) {
     }
 }
 
-// 获取当前血量
+// Get the current health
 int getCurrentHealth(const HealthSystem& health) {
     return health.health;
 }
 
-// 重置血量
+// Reset health
 void resetHealth(HealthSystem& health) {
     health.health = MAX_HEALTH;
     health.isInvincible = false;
-} 
+}
