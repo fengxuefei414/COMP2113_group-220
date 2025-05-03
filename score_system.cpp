@@ -5,22 +5,22 @@
 #include <algorithm>
 #include <ctime>
 
-// 存储所有关卡的评分
+// Store scores for all levels
 static std::vector<LevelScore> levelScores;
 
-// 计算关卡评分
+// Calculate level score
 void calculateLevelScore(int level, int timeUsed, int remainingHealth) {
     LevelScore score;
     score.level = level;
-    score.timeScore = std::max(0, 60 - timeUsed);  // 时间得分 = 60 - 使用时间
-    score.healthScore = remainingHealth * 5;   // 血量得分 = 剩余血量 * 5
+    score.timeScore = std::max(0, 60 - timeUsed);  // Time score = 60 - used time
+    score.healthScore = remainingHealth * 5;   // Health score = remaining health * 5
     if (score.healthScore == 0) {
         score.totalScore = timeUsed;
     } else {
         score.totalScore = score.timeScore + score.healthScore;
     }
     
-    // 计算评级
+    // Calculate grade
     if (score.totalScore >= 40) {
         score.grade = 'A';
     } else if (score.totalScore >= 30) {
@@ -29,34 +29,32 @@ void calculateLevelScore(int level, int timeUsed, int remainingHealth) {
         score.grade = 'C';
     }
     
-    // 添加到评分列表
+    // Add to score list
     levelScores.push_back(score);
 }
 
-// 显示所有关卡评分 - 增强版
+// Display all level scores - Enhanced version
 void displayLevelScores() {
-    // 获取已完成关卡的评分数据
+    // Get completed level score data
     const auto& levelScores = getLevelScores();
     if (levelScores.empty()) {
         return;
     }
 
-    // 打开文件（追加模式）
+    // Open file (append mode)
     std::ofstream outFile("./record.txt", std::ios::app);
     if (!outFile) {
-        std::cerr << "无法打开记录文件 record.txt" << std::endl;
+        std::cerr << "Unable to open record.txt" << std::endl;
         return;
     }
 
-    std::ofstream file("./record.txt", std::ios::app); // 使用 append 模式
+    std::ofstream file("./record.txt", std::ios::app); // Use append mode
     if (!file.is_open()) {
         std::cerr << "Can not open: record.txt" << std::endl;
         return;
     }
 
-
-
-    // 计算平均GPA
+    // Calculate average GPA
     float totalGpa = 0.0f;
     for (const auto& score : levelScores) {
         switch (score.grade) {
@@ -68,26 +66,26 @@ void displayLevelScores() {
     }
     float avgGpa = levelScores.size() > 0 ? totalGpa / levelScores.size() : 0.0f;
 
-    // 根据GPA确定总体结果
+    // Determine overall result based on GPA
     bool isPass = avgGpa >= 2.0;
     std::string resultText = isPass ? "ACADEMIC VICTORY!" : "ACADEMIC PROBATION";
     std::string resultSymbol = isPass ? "🎓" : "💀";
 
-    // 输出文件和终端的流
-    std::ostream& out = outFile; // 输出到文件
-    std::ostream& console = std::cout; // 输出到终端
+    // Output file and terminal streams
+    std::ostream& out = outFile; // Output to file
+    std::ostream& console = std::cout; // Output to terminal
 
-    // 获取当前时间
-    std::time_t now = std::time(nullptr); // 获取当前时间（时间戳）
+    // Get current time
+    std::time_t now = std::time(nullptr); // Get current time (timestamp)
     char timeStr[100];
-    std::strftime(timeStr, sizeof(timeStr), "%Y-%m-%d %H:%M:%S", std::localtime(&now)); // 格式化时间
+    std::strftime(timeStr, sizeof(timeStr), "%Y-%m-%d %H:%M:%S", std::localtime(&now)); // Format time
 
-    // 写入创建记录的时间
+    // Write creation time of record
     out << std::endl;
     out << timeStr << std::endl;
     out << std::endl;
 
-    // 显示标题
+    // Display title
     out << "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n";
     out << "█▓▒░░      ~ GRADE RELEASE ~      ░░▒▓█\n";
     out << "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n\n";
@@ -96,18 +94,18 @@ void displayLevelScores() {
     console << "█▓▒░░      ~ GRADE RELEASE ~      ░░▒▓█\n";
     console << "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n\n";
 
-    // 显示总体结果
+    // Display overall result
     out << "  " << resultSymbol << "  " << resultText << "  " << resultSymbol << "\n\n";
     console << "  " << resultSymbol << "  " << resultText << "  " << resultSymbol << "\n\n";
 
-    // 显示成绩表头
+    // Display score table header
     out << "  LEVEL     TIME    SCORE   SURV   TOTAL  GRADE\n";
     out << "  ─────────────────────────────────────────────\n";
 
     console << "  LEVEL     TIME    SCORE   SURV   TOTAL  GRADE\n";
     console << "  ─────────────────────────────────────────────\n";
 
-    // 遍历并显示每门课程的成绩与其他数据
+    // Display each course's score and other data
     for (const auto& score : levelScores) {
         std::string courseName;
         switch (score.level) {
@@ -128,7 +126,7 @@ void displayLevelScores() {
 
         std::string survivalSymbol = survived ? "✓" : "✗";
 
-        // 打印行数据到文件和终端
+        // Print row data to file and terminal
         out << "  " << std::left << std::setw(9) << courseName
             << std::right << std::setw(4) << timeUsed << "s "
             << std::right << std::setw(8) << scoreVal
@@ -144,20 +142,20 @@ void displayLevelScores() {
                 << std::right << std::setw(7) << gradeChar << "\n";
     }
 
-    // 显示最终GPA
+    // Display final GPA
     out << "\nFINAL GPA: " << std::fixed << std::setprecision(1) << avgGpa << "\n";
     console << "\nFINAL GPA: " << std::fixed << std::setprecision(1) << avgGpa << "\n";
 
-    // 关闭文件
+    // Close file
     outFile.close();
 }
 
-// 显示已通关关卡评分
+// Display completed level scores
 void displayCurrentLevelScores() {
     if (!levelScores.empty()) {
-        std::cout << "\n已通关关卡评分：" << std::endl;
+        std::cout << "\nCompleted Level Scores:" << std::endl;
         std::cout << "--------------------------" << std::endl;
-        std::cout << "关卡\t评级" << std::endl;
+        std::cout << "Level\tGrade" << std::endl;
         std::cout << "--------------------------" << std::endl;
         for (const auto& score : levelScores) {
             std::cout << score.level << "\t" << score.grade << std::endl;
@@ -167,39 +165,39 @@ void displayCurrentLevelScores() {
 }
 
 void writeOutputToFile() {
-    // 打开文件
-    std::ofstream file("./record.txt", std::ios::app); // 使用 append 模式
+    // Open file
+    std::ofstream file("./record.txt", std::ios::app); // Use append mode
     if (!file.is_open()) {
         std::cerr << "Can not open: record.txt" << std::endl;
         return;
     }
 
-    // 获取当前时间
-    std::time_t now = std::time(nullptr); // 获取当前时间（时间戳）
+    // Get current time
+    std::time_t now = std::time(nullptr); // Get current time (timestamp)
     char timeStr[100];
-    std::strftime(timeStr, sizeof(timeStr), "%Y-%m-%d %H:%M:%S", std::localtime(&now)); // 格式化时间
+    std::strftime(timeStr, sizeof(timeStr), "%Y-%m-%d %H:%M:%S", std::localtime(&now)); // Format time
 
-    // 写入创建记录的时间
+    // Write creation time of record
     file << "Record Time" << std::endl;
     file << timeStr << std::endl;
 
-    // 重定向 std::cout 到文件
-    std::streambuf *coutBuf = std::cout.rdbuf(); // 保存原始缓冲区
-    std::cout.rdbuf(file.rdbuf());              // 重定向 std::cout 到文件
+    // Redirect std::cout to file
+    std::streambuf *coutBuf = std::cout.rdbuf(); // Save original buffer
+    std::cout.rdbuf(file.rdbuf());              // Redirect std::cout to file
 
-    // 恢复 std::cout 的原始缓冲区
+    // Restore original std::cout buffer
     std::cout.rdbuf(coutBuf);
 
-    // 关闭文件
+    // Close file
     file.close();
 }
 
-// 获取评分列表
+// Get score list
 std::vector<LevelScore>& getLevelScores() {
     return levelScores;
 }
 
-// 计算GPA
+// Calculate GPA
 float calculateGPA() {
     float totalPoints = 0.0f;
     int numLevels = levelScores.size();
