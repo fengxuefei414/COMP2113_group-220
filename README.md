@@ -3,7 +3,10 @@
 > **DDL Fighter** is a fun and challenging terminal game designed to simulate the experience of racing against deadlines. Players traverse upto six unique levels, representing different courses, while managing their health and time effectively. The game features random events triggered by player actions that make each playthrough unpredictable and engaging. Players receive scores at the end of each level and a final GPA upon completing the game, reflecting their performance.
 
 ---
+# **Demo**
+[![Youtube](https://img.youtube.com/vi/i3o0LayMPoA/maxresdefault.jpg)](https://www.youtube.com/watch?v=i3o0LayMPoA)
 
+---
 # **Team Members (Group 220)**
 
 | **Name**            | **Contributions**                                          |
