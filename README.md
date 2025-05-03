@@ -132,7 +132,7 @@ Here is the directory structure of the project files:
     ├── All_maps/               # All level map implementations
     │   ├── map1001.cpp
     │   ├── map1117.cpp
-    │   ├── map1013.cpp
+    │   ├── map1000.cpp
     │   ├── map1016.cpp
     │   ├── map2014.cpp
     │   ├── map2601.cpp
