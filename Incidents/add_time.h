@@ -9,6 +9,6 @@
  * @brief Adds additional time to the current level
  * @param time Reference to the current level time to be increased
  */
-void addLevelTime(int& time);  // 增加关卡时间
+void addLevelTime(int& time);  // Add level time
 
 #endif // ADD_TIME_H 

@@ -1,9 +1,9 @@
 #include "reverse_DUE.h"
 
-// DUE倒退
+// Reverse DUE movement
 void reverseDUE(int& DUEPosition) {
-    DUEPosition -= 3;  // 倒退3格
-    if (DUEPosition < 0) {  // 确保不会退到负数位置
+    DUEPosition -= 3;  // Move back 3 spaces
+    if (DUEPosition < 0) {  // Ensure position doesn't become negative
         DUEPosition = 0;
     }
 } 

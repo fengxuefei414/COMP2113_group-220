@@ -1,27 +1,27 @@
 #include "pause_DUE.h"
 #include <ctime>
 
-// 定义暂停DUE相关变量
+// Define DUE pause related variables
 time_t DUEPauseStartTime;
 bool isDUEPaused = false;
 
-// 暂停DUE
+// Pause DUE
 void pauseDUE() {
     DUEPauseStartTime = time(nullptr);
     isDUEPaused = true;
 }
 
-// 更新DUE暂停状态
+// Update DUE pause state
 void updateDUEPause() {
     if (isDUEPaused) {
         time_t currentTime = time(nullptr);
-        if (currentTime - DUEPauseStartTime >= 3) {  // 改为5秒后恢复
+        if (currentTime - DUEPauseStartTime >= 3) {  // Resume after 5 seconds
             isDUEPaused = false;
         }
     }
 }
 
-// 检查DUE是否处于暂停状态
+// Check if DUE is currently paused
 bool isDUECurrentlyPaused() {
     return isDUEPaused;
 }

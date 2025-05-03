@@ -1,6 +1,6 @@
 #include "add_time.h"
 
-// 增加关卡时间
+// Add level time
 void addLevelTime(int& time) {
-    time += 10;  // 增加10秒
+    time += 10;  // Add 10 seconds
 } 

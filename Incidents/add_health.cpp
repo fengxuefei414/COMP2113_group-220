@@ -2,7 +2,7 @@
 #include "../health_system.h"
 
 void addHealth(HealthSystem& health) {
-    // 如果血量未满（假设最大血量为4），则增加1点血量
+    // If health is not full (max health is 4), increase health by 1
     if (health.health < 4) {
         health.health ++;
     }

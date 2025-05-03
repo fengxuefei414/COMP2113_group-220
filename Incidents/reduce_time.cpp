@@ -1,9 +1,9 @@
 #include "reduce_time.h"
 
-// 减少关卡时间
+// Reduce level time
 void reduceLevelTime(int& levelTime) {
-    levelTime -= 10;  // 减少10秒
-    if (levelTime < 0) {  // 确保时间不会变成负数
+    levelTime -= 10;  // Reduce by 10 seconds
+    if (levelTime < 0) {  // Ensure time doesn't become negative
         levelTime = 0;
     }
 } 
