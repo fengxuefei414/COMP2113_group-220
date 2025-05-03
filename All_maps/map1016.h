@@ -7,11 +7,9 @@
 
 using namespace std;
 
-// 地图常量
 extern const int MAP_WIDTH;
 extern const int MAP_HEIGHT;
 
-// 地图函数声明
 void displayMap(const vector<vector<char> >& map);
 void initializeMap(vector<vector<char> >& map);
 void setfloor(vector<vector<char> >& map, int x, int y);
