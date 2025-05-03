@@ -414,16 +414,12 @@ SettingsMenuOption runSettingsMenu() {
                     case 2: { // Controls
                         clearScreen();
                         std::cout << Color::BRIGHT_BLUE << Color::BOLD << "CONTROLS:\n\n" << Color::RESET
-                                  << Color::BRIGHT_WHITE << "  Movement:  " << Color::CYAN << "Arrow Keys (▲ ▼ ◀ ▶)\n" << Color::RESET
                                   << Color::BRIGHT_WHITE << "  Navigate:  " << Color::CYAN << "Arrow Keys (▲ ▼)\n" << Color::RESET
-                                  << Color::BRIGHT_WHITE << "  Select:    " << Color::GREEN << "ENTER / SPACE\n" << Color::RESET
-                                  << Color::BRIGHT_WHITE << "  Quit/Back: " << Color::MAGENTA << "Q\n\n" << Color::RESET
-                                  // Add game-specific controls if applicable
-                                  << Color::BRIGHT_RED << "  Attack:    " << Color::BOLD << "Z\n" << Color::RESET
-                                  << Color::BRIGHT_YELLOW << "  Block:     " << Color::BOLD << "X\n" << Color::RESET
-                                  << Color::BRIGHT_GREEN << "  Special:   " << Color::BOLD << "C\n" << Color::RESET
-                                  << Color::BRIGHT_MAGENTA << "  Pause:     " << Color::BOLD << "ESC\n\n" << Color::RESET
-
+								  << Color::BRIGHT_WHITE << "  Select:    " << Color::CYAN << "ENTER\n" << Color::RESET
+							      << Color::BRIGHT_WHITE << "  Jump:      " << Color::GREEN << "W\n" << Color::RESET
+				                  << Color::BRIGHT_WHITE << "  Move Left: " << Color::GREEN << "A\n" << Color::RESET
+				                  << Color::BRIGHT_WHITE << "  Move Right:" << Color::GREEN << "D\n" << Color::RESET
+                                  << Color::BRIGHT_WHITE << "  Back/Quit: " << Color::MAGENTA << "Q\n\n" << Color::RESET
                                   << Color::BRIGHT_WHITE << "Press any key to return..." << Color::RESET;
                         readKeyInput(); // Wait before returning to settings menu
                         break; // Break from inner switch, stay in settings menu
