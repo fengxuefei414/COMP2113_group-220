@@ -60,12 +60,6 @@
 
 ## **Non-Standard Libraries**
 
-- **Terminal UI:** We use the `ncurses` library to create a terminal UI for the game.
-
----
-
-### **System Libraries**
-
 1. **<termios.h> (Terminal Control Library)**
    - **In `user_control.h/cpp`:**
      - Used for real-time keyboard input detection, allowing key presses to be detected without pressing Enter.
