@@ -6,14 +6,14 @@
 
 # **Team Members (Group 220)**
 
-| **Name**            | **Student ID** | **Contributions**                                          |
-|----------------------|----------------|-----------------------------------------------------------|
-| Cheung Chuen Pui    | 3036408076     | UI design.                                                |
-| Feng Xuefei         | 3036292295     | Incidents UI, Random events ,Score system.                                  |
-| Lu Bitong           | 3036389725     | Health system, Random events, Makefile, Main logic.           |
-| Shao Shenghe        | 3036395798     | Map UI design (apai1001, caes1000, comp1117, stat1016).   |
-| Tan Jiaqi           | 3036440696     | User control system, File In/Out, Debug.                 |
-| Xu Tianjian         | 3036289705     | Map Logic, Map UI design (stat2601, math2014).           |
+| **Name**            | **Contributions**                                          |
+|----------------------|-----------------------------------------------------------|
+| Cheung Chuen Pui    | UI design.                                                |
+| Feng Xuefei         | Incidents UI, Random events ,Score system.                                  |
+| Lu Bitong           | Health system, Random events, Makefile, Main logic.           |
+| Shao Shenghe        | Map UI design (apai1001, caes1000, comp1117, stat1016).   |
+| Tan Jiaqi           | User control system, File In/Out, Debug.                 |
+| Xu Tianjian         | Map Logic, Map UI design (stat2601, math2014).           |
 
 
 ---
