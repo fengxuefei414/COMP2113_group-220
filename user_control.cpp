@@ -9,45 +9,45 @@
 
 using namespace std;
 
-struct termios UserControl::orig_termios; // 静态成员变量定义
+struct termios UserControl::orig_termios; // Static member variable definition
 
-// 构造函数：启用终端原始模式
+// Constructor: Enables raw terminal mode
 UserControl::UserControl(){
     enableRawMode();
 }
 
-// 析构函数：恢复终端原始模式
+// Destructor: Restores the terminal to its original mode
 UserControl::~UserControl() {
     enableRawMode();
-    returnToMainMenu = false;  // 初始化标志为false
+    returnToMainMenu = false;  // Initialize the flag to false
 }
 
 void UserControl::resetReturnFlag() {
     returnToMainMenu = false;
 }
 
-// 启用终端原始模式
+// Enables raw terminal mode
 void UserControl::enableRawMode() {
-    tcgetattr(STDIN_FILENO, &orig_termios); // 保存当前终端设置
-    atexit(disableRawMode);                 // 程序退出时恢复终端模式
+    tcgetattr(STDIN_FILENO, &orig_termios); // Save current terminal settings
+    atexit(disableRawMode);                 // Restore terminal mode on program exit
 
     struct termios raw = orig_termios;
-    raw.c_lflag &= ~(ECHO | ICANON | ISIG); // 关闭回显、行缓冲和信号处理
-    raw.c_cc[VMIN] = 0;                     // 非阻塞输入
-    raw.c_cc[VTIME] = 1;                    // 设置超时时间
+    raw.c_lflag &= ~(ECHO | ICANON | ISIG); // Disable echo, line buffering, and signal processing
+    raw.c_cc[VMIN] = 0;                     // Non-blocking input
+    raw.c_cc[VTIME] = 1;                    // Set timeout
     tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
 }
 
-// 恢复终端原始模式（静态函数）
+// Restores the terminal to its original mode (static function)
 void UserControl::disableRawMode() {
-    tcsetattr(STDIN_FILENO, TCSAFLUSH, &orig_termios); // 恢复原始终端设置
+    tcsetattr(STDIN_FILENO, TCSAFLUSH, &orig_termios); // Restore original terminal settings
 }
 
-// 检测按键输入
+// Detects key presses
 char UserControl::getKeyPress() {
     char c = 0;
     fd_set fds;
-    struct timeval tv = {0, 0}; // 非阻塞
+    struct timeval tv = {0, 0}; // Non-blocking
     FD_ZERO(&fds);
     FD_SET(STDIN_FILENO, &fds);
 
@@ -57,40 +57,40 @@ char UserControl::getKeyPress() {
     return c;
 }
 
-// 处理用户输入
+// Handles user input
 void UserControl::handleInput(int &playerX, int &playerY, bool &isJumping, float &playerVelocityY, float &playerVelocityX, const float JUMP_FORCE, int SCREEN_WIDTH) {
     char key = getKeyPress();
     
-    // 处理按键输入
+    // Process key input
     switch (key) {
         case 'a': case 'A':
             if (playerX > 0 || playerX < SCREEN_WIDTH - 1) {
                 if (!isJumping) {
-                    playerX--; // 在地面上直接向左移动一格
+                    playerX--; // Move one step left on the ground
                 } else {
-                    playerVelocityX = -1.0f; // 在跳跃时设置较小的向左水平速度
+                    playerVelocityX = -1.0f; // Set a small horizontal velocity to the left while jumping
                 }
             }
             break;
         case 'd': case 'D':
             if (playerX < SCREEN_WIDTH - 1) {
                 if (!isJumping) {
-                    playerX++; // 在地面上直接向右移动一格
+                    playerX++; // Move one step right on the ground
                 } else {
-                    playerVelocityX = 1.0f; // 在跳跃时设置向右的水平速度
+                    playerVelocityX = 1.0f; // Set horizontal velocity to the right while jumping
                 }
             }
             break;
         case 'w': case 'W':
             if (!isJumping) {
                 isJumping = true;
-                playerVelocityY = JUMP_FORCE; // 开始跳跃
+                playerVelocityY = JUMP_FORCE; // Start jumping
             }
             break;
         case 'q': case 'Q':
-            // 设置返回主菜单标志
+            // Set the flag to return to the main menu
             returnToMainMenu = true;
-            // displayLevelScores();
+            // displayLevelScores(); // (Optional: Uncomment if a level score display is implemented)
             break;
         default:
             break;
